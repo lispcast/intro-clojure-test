@@ -3,7 +3,8 @@
    [fitness.lower-body :refer :all]
    [clojure.test       :refer :all]
    [fitness.warm-up    :as warm-up]
-   [fitness.cool-down  :as cool-down]))
+   [fitness.cool-down  :as cool-down]
+   [fitness.pep        :as pep]))
 
 (defn warm-up []
   (warm-up/jumping-jacks 50)
@@ -20,6 +21,14 @@
     (tests)
     (cool-down)
     (println "===============")))
+
+(use-fixtures :each
+  (fn [test]
+    (println "_________________")
+    (pep/you-can-do-it)
+    (test)
+    (pep/applaud)
+    (println "-----------------")))
 
 (deftest squat-test
   (let [results (squats 50)]

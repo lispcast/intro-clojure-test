@@ -1,7 +1,25 @@
 (ns fitness.upper-body-test
   (:require
    [fitness.upper-body :refer :all]
-   [clojure.test       :refer :all]))
+   [clojure.test       :refer :all]
+   [fitness.warm-up    :as warm-up]
+   [fitness.cool-down  :as cool-down]))
+
+(defn warm-up []
+  (warm-up/jogging 60)
+  (warm-up/cross-toe-touches 20))
+
+(defn cool-down []
+  (cool-down/hurdler-stretch 30)
+  (cool-down/arm-stretch 30))
+
+(use-fixtures :once
+  (fn [tests]
+    (println "===============")
+    (warm-up)
+    (tests)
+    (cool-down)
+    (println "===============")))
 
 (deftest push-up-test
   (let [results (push-ups 50)]

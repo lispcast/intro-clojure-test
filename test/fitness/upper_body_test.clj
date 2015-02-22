@@ -4,4 +4,6 @@
    [clojure.test       :refer :all]))
 
 (deftest push-up-test
-  (is (= 50 (:actual-reps (push-ups 50)))))
+  (let [results (push-ups 50)]
+    (is (= 50 (:actual-reps results)))
+    (is (<= (:seconds results) (* 4 60)))))

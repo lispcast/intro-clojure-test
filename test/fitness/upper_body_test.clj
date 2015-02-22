@@ -4,4 +4,4 @@
    [clojure.test       :refer :all]))
 
 (deftest push-up-test
-  (is (= 200 (:actual-reps (push-ups 50)))))
+  (is (= 50 (:actual-reps (push-ups 50)))))

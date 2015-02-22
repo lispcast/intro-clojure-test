@@ -16,3 +16,8 @@
 (deftest weighted-squat-too-heavy-test
   (is (thrown? fitness.safety.UnsafeResistanceException
                (weighted-squats 500 10))))
+
+(deftest weighted-squat-test
+  (let [results (weighted-squats 100 20)]
+    (is (= 20 (:actual-reps results)))
+    (is (<= (:seconds results) 120))))

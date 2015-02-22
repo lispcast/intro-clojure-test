@@ -12,3 +12,6 @@
   (let [results (pull-ups 10)]
     (is (= 10 (:actual-reps results)))
     (is (<= (:seconds results) 60))))
+
+(deftest bench-press-too-heavy-test
+  (is (= 10 (:actual-reps (bench-presses 300 10)))))

@@ -12,3 +12,7 @@
   (let [results (frog-leaps 5)]
     (is (= 5 (:actual-reps results)))
     (is (<= (:seconds results) 30))))
+
+(deftest weighted-squat-too-heavy-test
+  (is (thrown? fitness.safety.UnsafeResistanceException
+               (weighted-squats 500 10))))

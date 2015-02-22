@@ -2,3 +2,5 @@
   (:require
    [fitness.upper-body :refer :all]
    [clojure.test       :refer :all]))
+
+(deftest push-up-test)
